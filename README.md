@@ -4,8 +4,6 @@
 
 ## installation (easy way)
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Discovery-Projects/Image-UploadBot/tree/master)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/AmineSoukara/IMG-UploadBot)
 
 Libraries used: => Pyrogram => Telegraph
-
-Join [@cwprojects](https://t.me/cwprojects)
