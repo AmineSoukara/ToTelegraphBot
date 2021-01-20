@@ -21,15 +21,15 @@ TGraph = Client(
     api_hash=Credentials.API_HASH,
 )
 
-UPDATES_CHANNEL = os.environ.get('UPDATES_CHANNEL', 'Discovery_Updates')
+UPDATES_CHANNEL = os.environ.get('UPDATES_CHANNEL', 'DamienSoukara')
 home_text = """
 Hi, [{}](tg://user?id={})
-I am Telegram to telegra.ph image uploader bot.
+I Am Telegram To Telegra.ph Image Uploader Bot.
 
-Send me any Image I will upload to telegra.ph and give you link.
+Send Me Any Image I Will Upload It To Telegra.ph.
 """
 about_text = """
-🤖 **My Name:** [Telegraph Image Bot](https://t.me/AH_TelegraphBot)
+🤖 **My Name:** [Telegraph Image Bot](https://t.me/UrlTelegraphBot)
 
 📝 **Language:** [Python 3](https://www.python.org)
 
@@ -37,11 +37,11 @@ about_text = """
 
 📡 **Hosted on:** [Heroku](https://www.heroku.com)
 
-👨‍💻 **Developer:** @AbirHasan2005
+👨‍💻 **Developer:** @AmineSoukara
 
-👥 **Support Group:** [Linux Repositories](https://t.me/linux_repo)
+👥 **Support Group:** [Damien Help](https://t.me/DamienHelp)
 
-📢 **Updates Channel:** [Discovery Projects](https://t.me/Discovery_Updates)
+📢 **Updates Channel:** [Damien Soukara](https://t.me/DamienSoukara)
 """
 
 @TGraph.on_message(filters.command("start"))
@@ -54,7 +54,7 @@ async def start(client, message):
             if user.status == "kicked":
                await client.send_message(
                    chat_id=message.chat.id,
-                   text="Sorry Sir, You are Banned!\nNow Your Can't Use Me. Contact my [Support Group](https://t.me/linux_repo).",
+                   text="Sorry, You Are Banned!\nYou Can't Use Me. Contact My [Owner](https://t.me/DamienRobot).",
                    parse_mode="markdown",
                    disable_web_page_preview=True
                )
@@ -62,11 +62,11 @@ async def start(client, message):
         except UserNotParticipant:
             await client.send_message(
                 chat_id=message.chat.id,
-                text="**Please Join My Updates Channel to use this Bot!**",
+                text="**Please Join My Updates Channel To Use This Bot!**",
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
-                            InlineKeyboardButton("Join Updates Channel", url=f"https://t.me/{update_channel}")
+                            InlineKeyboardButton("💬 Join Updates Channel", url=f"https://t.me/{update_channel}")
                         ]
                     ]
                 ),
@@ -76,22 +76,22 @@ async def start(client, message):
         except Exception:
             await client.send_message(
                 chat_id=message.chat.id,
-                text="Something went Wrong. Contact my [Support Group](https://t.me/linux_repo).",
+                text="Something Went Wrong. Contact My [Owner](https://t.me/DamienRobot).",
                 parse_mode="markdown",
                 disable_web_page_preview=True
             )
             return
     ##
     await message.reply_text(
-        f"Hi, {message.from_user.mention}.\nI am Telegram to telegra.ph image uploader bot.",
+        f"Hi, {message.from_user.mention}.\nI Am Telegram To Telegra.ph Image Uploader Bot.",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton(text="Updates Channel", url="https://t.me/Discovery_Updates"),
-                    InlineKeyboardButton(text="Support Group", url="https://t.me/linux_repo")
+                    InlineKeyboardButton(text="💬 Updates Channel", url="https://t.me/DamienSoukara"),
+                    InlineKeyboardButton(text="🗣 Support Group", url="https://t.me/DamienHelp")
                 ],
                 [
-                    InlineKeyboardButton("About", callback_data="about")
+                    InlineKeyboardButton("©️ About", callback_data="about")
                 ]
             ]
         ),
@@ -110,7 +110,7 @@ async def getimage(client, message):
             if user.status == "kicked":
                await client.send_message(
                    chat_id=message.chat.id,
-                   text="Sorry Sir, You are Banned!\nNow Your Can't Use Me. Contact my [Support Group](https://t.me/linux_repo).",
+                   text="Sorry, You are Banned!\nYou Can't Use Me. Contact My [Owner](https://t.me/DamienRobot).",
                    parse_mode="markdown",
                    disable_web_page_preview=True
                )
@@ -118,11 +118,11 @@ async def getimage(client, message):
         except UserNotParticipant:
             await client.send_message(
                 chat_id=message.chat.id,
-                text="**Please Join My Updates Channel to use this Bot!**",
+                text="**Please Join My Updates Channel To Use This Bot!**",
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
-                            InlineKeyboardButton("Join Updates Channel", url=f"https://t.me/{update_channel}")
+                            InlineKeyboardButton("💬 Join Updates Channel", url=f"https://t.me/{update_channel}")
                         ]
                     ]
                 ),
@@ -132,7 +132,7 @@ async def getimage(client, message):
         except Exception:
             await client.send_message(
                 chat_id=message.chat.id,
-                text="Something went Wrong. Contact my [Support Group](https://t.me/linux_repo).",
+                text="Something Went Wrong. Contact My [Owner](https://t.me/Damienrobot).",
                 parse_mode="markdown",
                 disable_web_page_preview=True
             )
@@ -145,13 +145,13 @@ async def getimage(client, message):
     if not os.path.isdir(tmp):
         os.makedirs(tmp)
     img_path = os.path.join(tmp, str(uuid.uuid4()) + ".jpg")
-    dwn = await message.reply_text("Downloading ...", True)
+    dwn = await message.reply_text("⏳ Downloading ...", True)
     img_path = await client.download_media(message=message, file_name=img_path)
-    await dwn.edit_text("Uploading ...")
+    await dwn.edit_text("✅ Uploading ...")
     try:
         response = upload_file(img_path)
     except Exception as error:
-        await dwn.edit_text(f"Oops, Something went wrong!\n\n{error}")
+        await dwn.edit_text(f"Oops, Something Went Wrong!\n\n{error}")
         return
     await dwn.edit_text(f"https://telegra.ph{response[0]}")
     shutil.rmtree(tmp, ignore_errors=True)
@@ -169,8 +169,8 @@ def dynamic_data_filter(data):
 async def about_meh(_, query):
     buttons = [
         [
-            InlineKeyboardButton("Go To Home", callback_data="home"),
-            InlineKeyboardButton("Close", callback_data="closeit")
+            InlineKeyboardButton("🏠 Home", callback_data="home"),
+            InlineKeyboardButton("⛔ Close", callback_data="closeit")
         ]
     ]
     await query.message.edit(
@@ -185,11 +185,11 @@ async def about_meh(_, query):
 async def go_to_home(_, query):
     buttons = [
         [
-            InlineKeyboardButton("Support Group", url="http://t.me/linux_repo"),
-            InlineKeyboardButton("Updates Channel", url="http://t.me/Discovery_Updates")
+            InlineKeyboardButton("🗣 Support Group", url="http://t.me/damienhelp"),
+            InlineKeyboardButton("💬 Updates Channel", url="http://t.me/Damiensoukara")
         ],
         [
-            InlineKeyboardButton("About", callback_data="about")
+            InlineKeyboardButton("©️ About", callback_data="about")
         ]
     ]
     await query.message.edit(
