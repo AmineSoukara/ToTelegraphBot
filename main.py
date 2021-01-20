@@ -1,4 +1,4 @@
-# (c) CW4RR10R | @AbirHasan2005
+# (c) 
 
 import os
 import uuid
@@ -29,7 +29,7 @@ I Am Telegram To Telegra.ph Image Uploader Bot.
 Send Me Any Image I Will Upload It To Telegra.ph.
 """
 about_text = """
-🤖 **My Name:** [Telegraph Image Bot](https://t.me/UrlTelegraphBot)
+🤖 **My Name:** [Telegraph Image Bot](https://t.me/ToTelegraphBot)
 
 📝 **Language:** [Python 3](https://www.python.org)
 
