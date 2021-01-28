@@ -24,6 +24,7 @@ TGraph = Client(
 UPDATES_CHANNEL = os.environ.get('UPDATES_CHANNEL', 'DamienSoukara')
 home_text = """
 Hi, [{}](tg://user?id={})
+
 I Am Telegra.ph Image Uploader Bot.
 
 Send Me Any Image I Will Upload It To Telegra.ph.
@@ -83,7 +84,7 @@ async def start(client, message):
             return
     ##
     await message.reply_text(
-        f"Hi, {message.from_user.mention}.\nI Am Telegra.ph Image Uploader Bot.",
+        f"Hi, {message.from_user.mention}.\n\nI Am Telegra.ph Image Uploader Bot.",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
